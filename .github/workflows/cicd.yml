@@ -76,9 +76,9 @@ jobs:
         java-version: '17'
         distribution: 'temurin'
         cache: maven
+   
     - name: Build Project
-      run: mvn clean complie
-
+      run: mvn clean compile -Dspring-boot.repackage.skip=true
 
 
     - uses: actions/checkout@v4
@@ -90,6 +90,7 @@ jobs:
 # Ex: v4.1.0 or sha1, See the latest version at https://github.com/marketplace/actions/official-sonarqube-scan
       env:
         SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+        SONAR_HOST_URL: ${{ vars.SONAR_HOST_URL }}
 
     # Check the Quality Gate status.
     - name: SonarQube Quality Gate check
@@ -99,7 +100,9 @@ jobs:
         pollingTimeoutSec: 600
       env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+          
            
+
 
     
        
