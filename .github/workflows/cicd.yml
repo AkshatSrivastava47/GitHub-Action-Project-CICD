@@ -9,7 +9,7 @@ on:
 jobs:
   config:
 
-    runs-on: ubuntu-latest
+    runs-on: Self-hosted
 
     steps:
     - uses: actions/checkout@v4
@@ -24,7 +24,7 @@ jobs:
 
   security-check:
 
-    runs-on: ubuntu-latest
+    runs-on: Self-hosted
     needs: config
     
     steps:
