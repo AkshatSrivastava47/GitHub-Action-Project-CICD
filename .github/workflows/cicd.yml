@@ -77,7 +77,7 @@ jobs:
         distribution: 'temurin'
         cache: maven
     - name: Build Project
-      run: mvn package
+      run: mvn clean complie
 
 
 
